@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="runData" type="Application" factoryName="Application" singleton="true">
+    <envs>
+      <env name="MOD_CLASSES" value="iw%%$PROJECT_DIR$/../InvWalk\build\resources\main;iw%%$PROJECT_DIR$/../InvWalk\build\classes\java\main" />
+      <env name="MCP_MAPPINGS" value="official_1.20.4" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="net.minecraftforge.bootstrap.ForgeBootstrap" />
+    <module name="InvWalk" />
+    <option name="PROGRAM_PARAMETERS" value="--launchTarget forge_userdev_data --assetIndex 12 --assetsDir E:\.gradle\caches\forge_gradle\assets --gameDir . --mod iw --all --output D:\MinecraftForgeMod\InvWalk\src\generated\resources --existing D:\MinecraftForgeMod\InvWalk\src\main\resources --mixin.config iw.mixins.json" />
+    <option name="VM_PARAMETERS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=REGISTRIES -Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp=D:\MinecraftForgeMod\InvWalk\build\createSrgToMcp\output.srg -Dmixin.env.remapRefMap=true -Dmixin.env.refMapRemappingFile=D:\MinecraftForgeMod\InvWalk\build\createSrgToMcp\output.srg -Djava.net.preferIPv6Addresses=system" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../InvWalk\run-data" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks=":prepareRunDataCompile" externalProjectPath="$PROJECT_DIR$" />
+    </method>
+  </configuration>
+</component>
