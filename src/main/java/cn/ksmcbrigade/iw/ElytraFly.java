@@ -5,8 +5,6 @@ import cn.ksmcbrigade.vmr.uitls.ModuleUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.protocol.game.ServerboundPlayerCommandPacket;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ElytraItem;
@@ -17,6 +15,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
 import java.util.Objects;
 
 @Mod(ElytraFly.MODID)
@@ -115,25 +114,15 @@ public class ElytraFly {
         }
     };
 
-    public static Module BF = new Module("BoatFly") {
-        @Override
-        public void playerTick(Minecraft MC, @Nullable Player player) {
-            if(player==null){
-                return;
-            }
-            if(player.getVehicle()==null){
-                return;
-            }
-            Entity vehicle = player.getVehicle();
-            if(!vehicle.getType().equals(EntityType.BOAT)){
-                return;
-            }
-            if(!MC.options.keyJump.isDown()){
-                return;
-            }
-            vehicle.setDeltaMovement(new Vec3(0,0.3,0));
+    public static Module BF;
+
+    static {
+        try {
+            BF = new BoatModule();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-    };
+    }
 
     public ElytraFly() {
         MinecraftForge.EVENT_BUS.register(this);
